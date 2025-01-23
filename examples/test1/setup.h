@@ -1,8 +1,8 @@
 #include "MKL_Dabble.h"
-#include "MKL_Gamepad.h"
+// #include "MKL_Gamepad.h"
 #include "car_formula.h"
 
-MKL_Gamepad_RX sGamepad;
+// MKL_Gamepad_RX sGamepad;
 
 #define TX_PIN 12
 #define RX_PIN 13
@@ -19,12 +19,12 @@ void setup_IIC()
   Dabble.begin(mySoftwareSerial);
   myDriver.begin();
   myDriver2.begin();
-  sGamepad.Reset_data_Gamepad();
+  // sGamepad.Reset_data_Gamepad();
 }
 
 void getData()
 {
-  sGamepad.Reset_data_Gamepad();
-  sGamepad.getdata_Gamepad_I2C();
+  // sGamepad.Reset_data_Gamepad();
+  // sGamepad.getdata_Gamepad_I2C();
   Dabble.processInput();
 }

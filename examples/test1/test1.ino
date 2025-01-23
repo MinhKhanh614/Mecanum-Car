@@ -9,7 +9,6 @@ void setup(void)
 void loop(void)
 {
   getData();
-  Serial.println(sGamepad.Get_DEG_Joy_L());
 
   if (GamePad.isUpPressed())
   {
