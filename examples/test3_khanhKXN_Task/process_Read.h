@@ -33,10 +33,26 @@ void loop()
       Serial.println("UP RIGHT");
       CAR1.mov_dia(1, 1, 128, 100);
     }
+    else if (READ1.getPressedButtons() & (1 << READ1.UP) && READ1.getPressedButtons() & (1 << READ1.SQUARE))
+    {
+      // CAR1.stopRunning();
+      // Serial.println("UP RIGHT");
+      // CAR1.mov_ard_bd(1, 0, 128, 100);
+      CAR1.stopRunning();
+      CAR1.rt_ard_p(1, 1, 128, 100);
+    }
+    else if (READ1.getPressedButtons() & (1 << READ1.UP) && READ1.getPressedButtons() & (1 << READ1.CIRCLE))
+    {
+      // CAR1.stopRunning();
+      // Serial.println("UP RIGHT");
+      // CAR1.mov_ard_bd(1, 0, 128, 100);
+      CAR1.stopRunning();
+      CAR1.rt_ard_p(1, 0, 128, 100);
+    }
     else if (READ1.getPressedButtons() & (1 << READ1.UP) && READ1.getPressedButtons() & (1 << READ1.LEFT))
     {
       // CAR1.stopRunning();
-      Serial.println("UP LEFT");
+      // Serial.println("UP LEFT");
       CAR1.mov_dia(1, 0, 128, 100);
     }
     else
@@ -54,6 +70,22 @@ void loop()
       // CAR1.stopRunning();
       Serial.println("DOWN RIGHT");
       CAR1.mov_dia(0, 1, 128, 100);
+    }
+    else if (READ1.getPressedButtons() & (1 << READ1.DOWN) && READ1.getPressedButtons() & (1 << READ1.SQUARE))
+    {
+      // CAR1.stopRunning();
+      // Serial.println("UP RIGHT");
+      // CAR1.mov_ard_bd(1, 0, 128, 100);
+      CAR1.stopRunning();
+      CAR1.rt_ard_p(0, 0, 128, 100);
+    }
+    else if (READ1.getPressedButtons() & (1 << READ1.DOWN) && READ1.getPressedButtons() & (1 << READ1.CIRCLE))
+    {
+      // CAR1.stopRunning();
+      // Serial.println("UP RIGHT");
+      // CAR1.mov_ard_bd(1, 0, 128, 100);
+      CAR1.stopRunning();
+      CAR1.rt_ard_p(0, 1, 128, 100);
     }
     else if (READ1.getPressedButtons() & (1 << READ1.DOWN) && READ1.getPressedButtons() & (1 << READ1.LEFT))
     {
@@ -76,6 +108,22 @@ void loop()
       // CAR1.stopRunning();
       Serial.println("UP LEFT");
       CAR1.mov_dia(1, 0, 128, 100);
+    }
+    else if (READ1.getPressedButtons() & (1 << READ1.LEFT) && READ1.getPressedButtons() & (1 << READ1.SQUARE))
+    {
+      // CAR1.stopRunning();
+      // Serial.println("UP RIGHT");
+      // CAR1.mov_ard_bd(1, 0, 128, 100);
+      CAR1.stopRunning();
+      CAR1.mov_ard_bd(1, 1, 128, 100);
+    }
+    else if (READ1.getPressedButtons() & (1 << READ1.LEFT) && READ1.getPressedButtons() & (1 << READ1.CIRCLE))
+    {
+      // CAR1.stopRunning();
+      // Serial.println("UP RIGHT");
+      // CAR1.mov_ard_bd(1, 0, 128, 100);
+      CAR1.stopRunning();
+      CAR1.mov_ard_bd(1, 0, 128, 100);
     }
     else if (READ1.getPressedButtons() & (1 << READ1.DOWN) && READ1.getPressedButtons() & (1 << READ1.LEFT))
     {
@@ -106,10 +154,119 @@ void loop()
       Serial.println("DOWN RIGHT");
       CAR1.mov_dia(0, 1, 128, 100);
     }
+    else if (READ1.getPressedButtons() & (1 << READ1.RIGHT) && READ1.getPressedButtons() & (1 << READ1.SQUARE))
+    {
+      CAR1.stopRunning();
+      CAR1.mov_ard_bd(1, 1, 128, 100);
+    }
+    else if (READ1.getPressedButtons() & (1 << READ1.RIGHT) && READ1.getPressedButtons() & (1 << READ1.CIRCLE))
+    {
+      CAR1.stopRunning();
+      CAR1.mov_ard_bd(1, 0, 128, 100);
+    }
     else
     {
       Serial.println("RIGHT");
       CAR1.mov_sdw(1, 128, 100);
+    }
+  }
+  if (READ1.getPressedButtons() & (1 << READ1.TRIANGLE))
+  {
+    // CAR1.stopRunning();
+    Serial.println("TRIANGLE");
+    // CAR1.mov_str(1, 128, 100);
+    digitalWrite(9, HIGH);
+  }
+  else
+  {
+    digitalWrite(9, LOW);
+  }
+
+  if (
+      // !READ1.getPressedButtons() & (1 << READ1.UP) &&
+      // !READ1.getPressedButtons() & (1 << READ1.DOWN) &&
+      // !READ1.getPressedButtons() & (1 << READ1.LEFT) &&
+      // !READ1.getPressedButtons() & (1 << READ1.RIGHT) &&
+      READ1.getPressedButtons() & (1 << READ1.CIRCLE))
+  {
+    if (READ1.getPressedButtons() & (1 << READ1.LEFT) && READ1.getPressedButtons() & (1 << READ1.CIRCLE))
+    {
+      // CAR1.stopRunning();
+      // Serial.println("UP RIGHT");
+      // CAR1.mov_ard_bd(1, 0, 128, 100);
+      CAR1.stopRunning();
+      CAR1.mov_ard_bd(1, 0, 128, 100);
+    }
+    else if (READ1.getPressedButtons() & (1 << READ1.RIGHT) && READ1.getPressedButtons() & (1 << READ1.CIRCLE))
+    {
+      CAR1.stopRunning();
+      CAR1.mov_ard_bd(1, 0, 128, 100);
+    }
+    else if (READ1.getPressedButtons() & (1 << READ1.DOWN) && READ1.getPressedButtons() & (1 << READ1.CIRCLE))
+    {
+      CAR1.stopRunning();
+      CAR1.rt_ard_p(0, 1, 128, 100);
+    }
+    else if (READ1.getPressedButtons() & (1 << READ1.UP) && READ1.getPressedButtons() & (1 << READ1.CIRCLE))
+    {
+      CAR1.stopRunning();
+      CAR1.rt_ard_p(1, 0, 128, 100);
+    }
+    else
+    {
+      // CAR1.stopRunning();
+      CAR1.rotation(1, 128, 10);
+      Serial.println("CIRCLE");
+    }
+  }
+
+  if (READ1.getPressedButtons() & (1 << READ1.CROSS))
+  {
+    // CAR1.stopRunning();
+    Serial.println("CROSS");
+    digitalWrite(10, HIGH);
+  }
+  else
+  {
+    digitalWrite(10, LOW);
+  }
+
+  if (
+      // !READ1.getPressedButtons() & (1 << READ1.UP) &&
+      // !READ1.getPressedButtons() & (1 << READ1.DOWN) &&
+      // !READ1.getPressedButtons() & (1 << READ1.LEFT) &&
+      // !READ1.getPressedButtons() & (1 << READ1.RIGHT) &&
+      READ1.getPressedButtons() & (1 << READ1.SQUARE))
+  {
+    if (READ1.getPressedButtons() & (1 << READ1.RIGHT) && READ1.getPressedButtons() & (1 << READ1.SQUARE))
+    {
+      CAR1.stopRunning();
+      CAR1.mov_ard_bd(1, 1, 128, 100);
+    }
+    else if (READ1.getPressedButtons() & (1 << READ1.UP) && READ1.getPressedButtons() & (1 << READ1.SQUARE))
+    {
+      CAR1.stopRunning();
+      CAR1.rt_ard_p(1, 1, 128, 100);
+    }
+    else if (READ1.getPressedButtons() & (1 << READ1.LEFT) && READ1.getPressedButtons() & (1 << READ1.SQUARE))
+    {
+      CAR1.stopRunning();
+      CAR1.mov_ard_bd(1, 1, 128, 100);
+    }
+    else if (READ1.getPressedButtons() & (1 << READ1.DOWN) && READ1.getPressedButtons() & (1 << READ1.SQUARE))
+    {
+      CAR1.stopRunning();
+      CAR1.rt_ard_p(0, 0, 128, 100);
+    }
+    else
+    {
+      // CAR1.stopRunning();
+      Serial.println("SQUARE");
+      CAR1.rotation(0, 128, 10);
+      // CAR1.mov_ard_bd(1, 0, 128, 100);
+      // CAR1.rt_ard_p(1, 0, 128, 100);
+      // CAR1.mov_str(1, 128, 100);
+      // digitalWrite(12, HIGH);
     }
   }
 }

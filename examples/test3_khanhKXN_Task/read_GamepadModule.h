@@ -120,6 +120,43 @@ void loop()
         this->pressedButtons &= ~(1 << this->RIGHT);
     }
     
+    if (GamePad.isTrianglePressed())
+    {
+        this->pressedButtons |= (1 << this->TRIANGLE);
+    }
+    else
+    {
+        this->pressedButtons &= ~(1 << this->TRIANGLE);
+    }
+
+    if (GamePad.isCirclePressed())
+    {
+        this->pressedButtons |= (1 << this->CIRCLE);
+    }
+    else
+    {
+        this->pressedButtons &= ~(1 << this->CIRCLE);
+    }
+
+    if (GamePad.isCrossPressed())
+    {
+        this->pressedButtons |= (1 << this->CROSS);
+    }
+    else
+    {
+        this->pressedButtons &= ~(1 << this->CROSS);
+    }
+
+    if (GamePad.isSquarePressed())
+    {
+        this->pressedButtons |= (1 << this->SQUARE);
+    }
+    else
+    {
+        this->pressedButtons &= ~(1 << this->SQUARE);
+    }
+    
+    
     // if (GamePad.isPressed(1)==0) this->pressedButtons = 0;
 
 }
