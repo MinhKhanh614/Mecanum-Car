@@ -13,7 +13,7 @@ CREATE_TASK(motor)
 public:
 void setup(MOTOR motor, uint8_t speed, unsigned long timeOut);
 void run(bool direction);
-
+void stop();
 private:
 uint8_t motorID;
 bool direction;
@@ -90,6 +90,28 @@ void motor::run(bool direction)
         break;
     case MOTOR4:
         motorDriver2->writeMB(direction, speed);
+        break;
+    }
+    end();
+}
+
+void motor::stop()
+{
+    init();
+    switch (motorID)
+    {
+    case MOTOR1:
+        // motorDriver1->writeMA(0, 0);
+        motorDriver1->writeMA(1, 100);
+        break;
+    case MOTOR2:
+        motorDriver1->writeMB(0, 0);
+        break;
+    case MOTOR3:
+        motorDriver2->writeMA(0, 0);
+        break;
+    case MOTOR4:
+        motorDriver2->writeMB(0, 0);
         break;
     }
     end();

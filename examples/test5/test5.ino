@@ -1,13 +1,14 @@
 #include "mecanumCar.h"
-// #include "car_formula.h"
-// mecanumCar CAR;
+#include <kxnTask.h>
+mecanumCar CAR;
 
 void setup() {
-  // CAR.setup();
-  // CAR.start();
+  CAR.setup();
+  CAR.start();
+  // Serial.begin(115200);
 }
 
 void loop() {
-  // kxnTaskManager.run(millis());
-
-}
+  kxnTaskManager.run(millis());
+  // Serial.println("Test");
+  }

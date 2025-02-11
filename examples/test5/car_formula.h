@@ -1,4 +1,4 @@
-#pragma once
+// #pragma once
 
 #include <Makerlabvn_I2C_Motor_Driver.h>
 #include <kxnTask.h>
@@ -41,7 +41,7 @@ CarState runningState = CarState::STOP;
 void setup() {
   myDriver.begin();
   myDriver2.begin();
-  stop();
+  // stop();
 }
 
 void loop() {
